@@ -4,6 +4,10 @@
 # Node
 node_modules
 
+# Npm
+# we commit yarn.lock instead
+/package-lock.json
+
 # macOS
 .DS_Store
 .AppleDouble
