@@ -7,25 +7,13 @@ import {Passenger} from '../../models/passenger.interface';
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
     <div>
-      <passenger-count></passenger-count>
-      <passenger-detail></passenger-detail>
-
-      <h3>Airline Passengers</h3>
-      <ul>
-        <li *ngFor="let passenger of passengers; let i = index;">
-          <span
-            class="status"
-            [class.checked-in]="passenger.checkedIn"></span>
-          {{ i }}: {{ passenger.fullname }}
-          <div class="date">
-            Check in date:
-            {{ passenger.checkInDate ? (passenger.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
-          </div>
-          <div class="children">
-            Children: {{ passenger.children?.length || 0 }}
-          </div>
-        </li>
-      </ul>
+      <passenger-count
+        [items]="passengers">
+      </passenger-count>
+      <passenger-detail
+        *ngFor="let passenger of passengers;"
+        [detail]="passenger">
+      </passenger-detail>
     </div>
   `
 })
@@ -37,9 +25,6 @@ export class PassengerDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // XXX testing...
-    console.log('ngOnInit');
-
     this.passengers = [{
       id: 1,
       fullname: 'Stephen',
