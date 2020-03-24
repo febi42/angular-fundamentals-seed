@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import {Passenger} from '../../models/passenger.interface';
-import {Baggage} from '../../models/baggage.interface';
+import { Passenger } from '../../models/passenger.interface';
+import { Baggage } from '../../models/baggage.interface';
 
 @Component({
   selector: 'passenger-form',
@@ -75,6 +75,7 @@ import {Baggage} from '../../models/baggage.interface';
   `
 })
 export class PassengerFormComponent {
+
   @Input()
   detail: Passenger;
 
@@ -84,13 +85,13 @@ export class PassengerFormComponent {
   baggage: Baggage[] = [{
     key: 'none',
     value: 'No baggage'
-  }, {
+  },{
     key: 'hand-only',
     value: 'Hand baggage'
-  }, {
+  },{
     key: 'hold-only',
     value: 'Hold baggage'
-  }, {
+  },{
     key: 'hand-hold',
     value: 'Hand and hold baggage'
   }];
